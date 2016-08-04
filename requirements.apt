@@ -1,0 +1,34 @@
+##basic build dependencies of various Django apps for Debian 8
+build-essential
+libncursesw5-dev
+libreadline-gplv2-dev
+libgdbm-dev
+libc6-dev
+libsqlite3-dev
+tk-dev
+gettext
+
+#lxml
+libxslt1-dev
+libxml2-dev
+python3-setuptools
+
+##Postgresql and psycopg2 dependencies
+libpq-dev
+
+##MySQL dependencies
+libmysqlclient-dev
+python3-dev
+
+##pylibmc
+libmemcached-dev
+libssl-dev
+openssl
+
+##django-extensions
+graphviz-dev
+
+##dev tools
+git
+vim
+curl
