@@ -20,3 +20,4 @@ requests==2.10.0
 simplejson==3.8.2
 six==1.10.0
 uritemplate==0.6
+uwsgi==2.0.13.1
