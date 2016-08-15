@@ -1,0 +1,35 @@
+version: "2"
+services:
+    nginx:
+        image: nginx
+        links:
+            - api
+        volumes:
+            - ./www/:/usr/share/nginx/html
+            - ./nginx_conf:/etc/nginx/conf.d
+        ports:
+            - "80:80"
+    api:
+        build: .
+        expose:
+            - "8000"
+        links:
+            - pg
+        volumes:
+            - .:/code
+        command: uwsgi --ini=uwsgi_conf/uwsgi.docker.dev.ini
+        depends_on:
+            - pg
+        environment:
+            - DATABASE_URL=postgresql://tpl:U_77_787ADE@pg/tpl_prj_db
+        volumes:
+            - .:/code
+
+    pg:
+        image: postgres
+        expose:
+            - "5432"
+        environment:
+            - POSTGRES_PASSWORD=U_77_787ADE
+            - POSTGRES_USER=tpl
+            - POSTGRES_DB=tpl_prj_db
